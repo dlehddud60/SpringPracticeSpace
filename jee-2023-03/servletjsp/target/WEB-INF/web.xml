@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<web-app 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+  xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" 
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" 
+  version="4.0">
+  
+  <display-name>servletjsp</display-name>
+
+  <context-param>
+    <param-name>driver</param-name> 
+    <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+  </context-param> 
+  
+  <context-param>
+    <param-name>savePath</param-name>
+    <param-value>/Users/DongYoung</param-value> 
+  </context-param>
+
+  <!-- <servlet>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>org.zerock.myapp.servlet.HelloServlet</servlet-class>
+  </servlet> -->
+
+  <!-- <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/Hello</url-pattern>
+    <url-pattern>/YYY</url-pattern>
+  </servlet-mapping> -->
+
+  <servlet>
+    <servlet-name>InitParamServlet</servlet-name>
+    <servlet-class>org.zerock.myapp.servlet.InitParamServlet</servlet-class>
+
+    <init-param>
+      <param-name>dirPath</param-name>
+      <param-value>/Users/Dongyoung</param-value>
+    </init-param>
+    <init-param>
+      <param-name>userid</param-name>
+      <param-value>DongYoung</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>InitParamServlet</servlet-name>
+    <url-pattern>/InitParam</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

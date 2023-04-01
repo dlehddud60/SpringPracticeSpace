@@ -1,0 +1,5 @@
+package com.leeacademy.board.repository;
+
+public interface BoardRepository {
+
+}
