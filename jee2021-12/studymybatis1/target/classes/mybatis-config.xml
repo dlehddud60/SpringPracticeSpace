@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <environments default="dev">
+
+
+        <environment id="dev">
+            <transactionManager type="JDBC" />
+            <dataSource type="UNPOOLED">
+                <property name="driver.encoding" value="utf8" />
+                <property name="driver" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+                <property name="url" value="jdbc:log4jdbc:oracle:thin:@o9o6yubutmsjch3b_high?TNS_ADMIN=/Users/leedongyoung/opt/OracleCloudWallet/VFX/"/>
+                <property name="username" value="ADMIN"/>
+                <property name="password" value="Oracle123456789"/>
+            </dataSource>
+        </environment>
+
+        <environment id="prod">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver.encoding" value="utf8" />
+                <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@o9o6yubutmsjch3b_high?TNS_ADMIN=/Users/leedongyoung/opt/OracleCloudWallet/VFX/"/>
+                <property name="username" value="ADMIN"/>
+                <property name="password" value="Oracle123456789"/>
+
+                <!-- 커넥션풀에 대한 상세설정 -->
+                <property name="poolMaximumActiveConnections" value="100" />
+                <property name="poolMaximumIdleConnections" value="3" />
+                <property name="poolTimeToWait" value="20000" /> 
+                <property name="poolPingQuery" value="SELECT 1 From dual" />
+                <property name="poolPingEnabled" value="true" />
+                <property name="poolPingConnectionsNotUsedFor" value="6000" />
+            </dataSource>
+        </environment>
+    </environments>
+
+</configuration>
