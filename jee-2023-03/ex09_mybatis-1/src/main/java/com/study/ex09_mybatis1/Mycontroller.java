@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
-
+//main
 @Controller
 public class Mycontroller {
 
@@ -45,7 +45,7 @@ public class Mycontroller {
         if(result == 1) {
             System.out.println("글쓰기 성공!");
         }else {
-            System.out.println("글쓰기 실패! ");
+            System.out.println("글쓰기 실패! 햣");
         }
 
 
