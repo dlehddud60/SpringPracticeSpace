@@ -33,7 +33,7 @@
             <td>${dto.board_idx}</td>
             <td>${dto.board_name}</td>
             <td>
-                <a href="contentForm?board_dix=${dto.board_idx}">${dto.board_title}</a>
+                <a href="contentForm?board_idx=${dto.board_idx}">${dto.board_title}</a>
             </td>
 
             <td>
@@ -50,5 +50,15 @@
     </tr>
 
 </table>
+<script>
+    //웹 브라우저 back키 누를 때, 페이지 재 로딩
+    window.onpageshow = function (event) {
+        if(event.persisted) {
+            document.location.reload();
+        }
+    };
+</script>
+
+
 </body>
 </html>
