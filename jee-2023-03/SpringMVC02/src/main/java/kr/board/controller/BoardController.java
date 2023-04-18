@@ -27,4 +27,32 @@ public class BoardController {
        return list;
    }
 
+   @RequestMapping("/boardInsert.do")
+    public @ResponseBody void boardInsert(Board vo) {
+        boardMapper.boardInsert(vo);
+   }
+
+   @RequestMapping("boardDelete.do")
+    public @ResponseBody void boardDelete(@RequestParam("idx") int idx) {
+        boardMapper.boardDelete(idx);
+   }
+   @RequestMapping("/boardUpdate.do")
+    public @ResponseBody void boardUpdate(Board vo) {
+        boardMapper.boardUpdate(vo);
+   }
+
+   @RequestMapping("/boardContent.do")
+    public @ResponseBody Board boardContent(int idx) {
+       Board vo = boardMapper.boardContent(idx);
+//       System.out.println("2023-04-18 17:51:48.216  INFO 39958 --- [  restartedMain] k.b.controller.SpringMvc101Application   : 상세보기");
+       return vo;
+   }
+
+   @RequestMapping("/boardCount.do")
+    public @ResponseBody Board boardCount(int idx) {
+        boardMapper.boardCount(idx);
+       Board vo = boardMapper.boardContent(idx);
+       return vo;
+   }
+
 }
