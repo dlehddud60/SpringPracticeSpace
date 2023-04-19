@@ -110,6 +110,56 @@ public class MemberController {
         }
     }
 
+    //회원정보수정화면
+    @RequestMapping("/memUpdateForm.do")
+    public String memUpdateForm() {
+
+
+        return "member/memUpdateForm";
+
+    }
+
+    // 회원정보 수정
+    @RequestMapping("/memUpdate.do")
+    public String memUpdate(Member m, RedirectAttributes rttr,
+                            String memPassword1,String memPassword2,HttpSession session) {
+
+        if(m.getMemID() == null || m.getMemID().equals("")||
+           memPassword1 == null || memPassword1.equals("")||
+            memPassword2 == null || memPassword2.equals("")||
+            m.getMemName() == null || m.getMemName().equals("")||
+            m.getMemAge() == 0 ||
+            m.getMemGender() == null || m.getMemGender().equals("")||
+            m.getMemEmail() == null || m.getMemEmail().equals("")) {
+            //누락메시지를 가지고 가기? => 객체 바인딩은 jsp로 갈 때 가능하다.
+
+            rttr.addFlashAttribute("msgType","실패 메세지");
+            rttr.addFlashAttribute("msg","모든 내용을 입력하세요 ");
+            return "redirect:/memUpdateForm.do";
+        }
+
+        if(!memPassword1.equals(memPassword2)) {
+            rttr.addFlashAttribute("msgType","실패 메세지");
+            rttr.addFlashAttribute("msg","비밀번호가 서로 다릅니다.");
+            return "redirect:/memUpdateForm.do";
+
+        }
+
+        //회원을 수정 저장하기
+        int result = memberMapper.memUpdate(m);
+        if (result == 1) {//수정 성공 메시지
+            rttr.addFlashAttribute("msgType","회원가입 성공메시지");
+            rttr.addFlashAttribute("msg","회원정보 수정에 성공했습니다.");
+            //회원 수정이 성공하면 => 로그인 처리하기
+            session.setAttribute("mvo",m); //${empty m}
+            return "redirect:/";
+        } else {
+            rttr.addFlashAttribute("msgType","실패 메시지");
+            rttr.addFlashAttribute("msg","회원정보 수정에 실패했습니다.");
+            return "redirect:/memUpdateForm.do";
+         }
+    }
+
 
 
 }
