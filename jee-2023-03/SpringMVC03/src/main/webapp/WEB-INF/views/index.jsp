@@ -18,12 +18,8 @@
     </script>
 
 <div class="container">
-    <c:if test="${empty mvo}">
-        <h3>회원제 게시판</h3>
-    </c:if>
-    <c:if test="${!empty mvo}">
-        <h3>[사진]${mvo.memName}님 방문을 환영합니다.</h3>
-    </c:if>
+
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <img src="${contextPath}/resources/images/main.jpg" style="width: 100%; height: 600px">

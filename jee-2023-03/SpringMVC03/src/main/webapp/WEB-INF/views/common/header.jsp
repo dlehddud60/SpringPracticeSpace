@@ -47,8 +47,16 @@
             <c:if test="${!empty mvo}">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="memUpdateForm.do"><span class="glyphicon glyphicon-user"></span> 회원정보수정</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>프로필사진등록</a></li>
+                    <li><a href="memImageForm.do"><span class="glyphicon glyphicon-log-in"></span>프로필사진등록</a></li>
                     <li><a href="memLogout.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
+                    <c:if test="${!empty mvo}">
+                        <c:if test="${mvo.memProfile eq ''}">
+                    <li style="color: white"><img class="img-circle" src="/resources/images/default.jpeg" style="width: 40px; height: 40px">${mvo.memName}님 안녕하세요</li>
+                        </c:if>
+                        <c:if test="${mvo.memProfile ne ''}">
+                    <li style="color: white"><img class="img-circle" src="/resources/upload/${mvo.memProfile}" style="width: 40px; height: 40px;">${mvo.memName}님 안녕하세요</li>
+                        </c:if>
+                    </c:if>
                 </ul>
             </c:if>
         </div>
