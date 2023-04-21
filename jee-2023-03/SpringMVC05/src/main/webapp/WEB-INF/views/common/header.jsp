@@ -51,10 +51,24 @@
                     <li><a href="memLogout.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
                     <c:if test="${!empty mvo}">
                         <c:if test="${empty mvo.memProfile}">
-                    <li style="color: white"><img class="img-circle" src="/resources/images/default.jpeg" style="width: 40px; height: 40px">${mvo.memName}님 안녕하세요</li>
+                    <li style="color: white"><img class="img-circle" src="/resources/images/default.jpeg" style="width: 40px; height: 40px">${mvo.memName}님
+                        (
+                        <c:forEach var="authVO" items="${mvo.authList}">
+                            <c:if test="${authVO.auth eq 'ROLE_USER'}">U</c:if>
+                            <c:if test="${authVO.auth eq 'ROLE_MANAGER'}">M</c:if>
+                            <c:if test="${authVO.auth eq 'ROLE_ADMIN'}">A</c:if>
+                        </c:forEach>
+                        ) 안녕하세요</li>
                         </c:if>
                         <c:if test="${!empty mvo.memProfile}">
-                    <li style="color: white"><img class="img-circle" src="/resources/upload/${mvo.memProfile}" style="width: 40px; height: 40px;">${mvo.memName}님 안녕하세요</li>
+                    <li style="color: white"><img class="img-circle" src="/resources/upload/${mvo.memProfile}" style="width: 40px; height: 40px;">${mvo.memName}님
+                        (
+                        <c:forEach var="authVO" items="${mvo.authList}">
+                            <c:if test="${authVO.auth eq 'ROLE_USER'}">U</c:if>
+                            <c:if test="${authVO.auth eq 'ROLE_MANAGER'}">M</c:if>
+                            <c:if test="${authVO.auth eq 'ROLE_ADMIN'}">A</c:if>
+                        </c:forEach>
+                        )</li>
                         </c:if>
                     </c:if>
                 </ul>

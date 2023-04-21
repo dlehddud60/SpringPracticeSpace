@@ -95,6 +95,7 @@ public class MemberController {
             //회원가입이 성공하면-> 로그인처리하기
             // getEember() -> 회원정보 + 권한정보
             Member mvo = memberMapper.getMember(m.getMemID());
+            System.out.println("2023-04-21 16:17:26.964  INFO 37618 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet" + mvo);
             session.setAttribute("mvo",mvo); //${empty m}
             return "redirect:/";
         } else {

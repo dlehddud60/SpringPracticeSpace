@@ -26,7 +26,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="container">
-  <h2>Spring MVC03</h2>
+  <h2>Spring MVC05</h2>
   <div class="panel panel-default">
     <div class="panel-heading">회원사진등록</div>
 

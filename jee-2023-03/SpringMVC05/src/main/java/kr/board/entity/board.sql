@@ -13,11 +13,13 @@ create table myboard(
     count int default 0,
     primary key(idx)
 );
+
+drop table mem_stbl;
 -- 스프링 시큐리티 (회원테이블)
 create table mem_stbl(
      memIdx int not null, -- 자동증가X
      memID varchar(20) not null,
-     memPassword varchar(20) not null,
+     memPassword varchar(68) not null,
      memName varchar(20) not null,
      memAge int,
      memGender varchar(20),
@@ -34,3 +36,5 @@ create table mem_auth(
      primary key(no),
      constraint fk_member_auth foreign key(memID) references mem_stbl(memID)
 );
+
+
