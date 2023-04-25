@@ -238,7 +238,6 @@ public class MemberController {
             rttr.addFlashAttribute("msg","파일의 크기는 10MB를 넘을 수 없습니다.");
             return "redirect:/memImageForm.do";
         }
-        //테스트
         //데이터베이스 테이블에 회원이미지를 업데이트 한다.
         String memID = multi.getParameter("memID");
         String newProfile = "";
