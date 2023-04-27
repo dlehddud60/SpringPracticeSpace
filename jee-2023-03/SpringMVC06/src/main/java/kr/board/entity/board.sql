@@ -38,3 +38,11 @@ create table mem_auth(
 );
 
 
+delete from mem_auth;
+delete from mem_stbl;
+delete from myboard;
+
+select *
+from mem_stbl;
+
+

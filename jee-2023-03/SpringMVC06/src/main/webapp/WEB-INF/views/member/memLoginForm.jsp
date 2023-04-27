@@ -13,9 +13,11 @@
 
   <script>
     $(document) .ready(function () {
-      if (${!empty msgType}) {
+      if (${param.error!=null}){
         $("#messageType").attr("class","modal-content panel-warning")
-        $("#myMessage").modal("show");
+        $(".modal-body").text("아이디와 비밀번호를 확인해주세요");
+        $(".modal-title").text("실패 메시지")
+        $("#myMessage").modal("show")
       }
     });
 
@@ -26,7 +28,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="container">
-  <h2>Spring MVC05</h2>
+  <h2>Spring MVC06</h2>
   <div class="panel panel-default">
     <div class="panel-heading">로그인화면</div>
 
