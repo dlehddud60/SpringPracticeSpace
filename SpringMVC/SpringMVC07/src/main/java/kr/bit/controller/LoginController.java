@@ -13,21 +13,4 @@ import kr.bit.service.BoardService;
 @RequestMapping("/login/*")
 public class LoginController {
 
-	@Autowired
-	BoardService boardService;
-	
-	@RequestMapping("/loginProcess")
-	public String login(Member vo, HttpSession session) {
-		Member mvo=boardService.login(vo);
-		if(mvo!=null) { //로그인 성공
-			session.setAttribute("mvo", mvo); // 객체바인딩 -> ${!empty mvo}
-		}
-		return "redirect:/board/list";
-	}
-
-	@RequestMapping("/logoutProcess")
-	public String logout(HttpSession session) {
-		session.invalidate(); // 세션 무효화(로그아웃)
-		return "redirect:/board/list";
-	}
 }

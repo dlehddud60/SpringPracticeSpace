@@ -27,14 +27,5 @@ public class BoardMapperTest {
 			 log.info(vo);
 		 }
 	 }
-//	 public void testInsert() {
-//		 Board vo=new Board();
-//		 vo.setMemID("bit03");
-//		 vo.setTitle("C");
-//		 vo.setContent("새로작성한 글");
-//		 vo.setWriter("홍길동");
-//		 //boardMapper.insert(vo);
-//		 boardMapper.insertSelectKey(vo);
-//		 log.info(vo);
-//	 }
+
 }
